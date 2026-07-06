@@ -1,7 +1,8 @@
-package com.ryan.minimalist_habit_tracker.Service;
+package backend.Service;
 
-import com.ryan.minimalist_habit_tracker.Model.Habit;
-import com.ryan.minimalist_habit_tracker.Repository.HabitRepository;
+import backend.Model.Habit;
+import backend.Model.HabitRecord;
+import backend.Repository.HabitRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -20,21 +21,27 @@ public class HabitService {
         return repository.save(habit);
     }
 
-    // Read
+    // ReadRecords
+    public List<HabitRecord> readRecords(Long id) {
+        Optional<Habit> habit = repository.findById(id);
+        if (habit.isPresent()) {
+            return habit.get().getHabitRecord();
+        }
+        return null;
+    }
 
     // ReadAll
     public List<Habit> readAll() {
-        List<Habit> habits = repository.findAll();
-        return habits;
+        return repository.findAll();
     }
 
     // Update
-    public Habit uptade(Habit habit, Long id) {
+    public Habit uptadeName(String name, Long id) {
         Optional<Habit> optHabit = repository.findById(id);
         if (optHabit.isPresent()) {
-            Habit habitUpdated = habit;
-            habit.setId(id);
-            return repository.save(habitUpdated);
+            Habit updated = optHabit.get();
+            updated.setName(name);
+            return repository.save(updated);
         }
         return null;
     }
