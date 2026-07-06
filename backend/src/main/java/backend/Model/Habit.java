@@ -1,10 +1,11 @@
-package com.ryan.minimalist_habit_tracker.Model;
+package backend.Model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_habit")
@@ -22,6 +23,6 @@ public class Habit {
     private LocalDate date = LocalDate.now();
 
     @OneToMany(mappedBy = "habit")
-    private HabitRecord habitRecord;
+    private List<HabitRecord> habitRecord;
 
 }

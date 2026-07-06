@@ -1,4 +1,4 @@
-package com.ryan.minimalist_habit_tracker.Model;
+package backend.Model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
