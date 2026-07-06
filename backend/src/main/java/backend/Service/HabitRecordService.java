@@ -6,7 +6,6 @@ import backend.Repository.HabitRecordRepository;
 import backend.Repository.HabitRepository;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -42,23 +41,53 @@ public class HabitRecordService {
         return null;
     }
 
-    // ReadAll
-    public List<HabitRecord> readAll() {
-        return repository.findAll();
-    }
-
     // Check
     public HabitRecord check(Long id) {
+        LocalDate today = LocalDate.now();
+
         Optional<HabitRecord> record = repository.findById(id);
-        if (record.isPresent()) {
+        if (record.isPresent() && record.get().getDate().equals(today)) {
             if (!record.get().isChecked()) {
                 HabitRecord checked = record.get();
                 checked.setChecked(true);
+                Habit habit = checked.getHabit();
+                habit.setTotalChecked(habit.getTotalChecked() + 1);
+
+                LocalDate yesterday = checked.getDate().minusDays(1);
+
+                Optional<HabitRecord> calcStreak = repository.findByHabitIdAndDate(habit.getId(), yesterday);
+                if (calcStreak.isPresent() && calcStreak.get().isChecked()) {
+                    habit.setHabitStreak(habit.getHabitStreak() + 1);
+                } else {
+                    habit.setHabitStreak(1);
+                }
+
+                habitRepository.save(habit);
                 return repository.save(checked);
             }
-            return null;
+            return record.get();
         }
         return null;
     }
 
+    // Uncheck
+    public HabitRecord uncheck(Long id) {
+        LocalDate today = LocalDate.now();
+
+        Optional<HabitRecord> record = repository.findById(id);
+        if (record.isPresent() && record.get().getDate().equals(today)) {
+            if (record.get().isChecked()) {
+                HabitRecord checked = record.get();
+                checked.setChecked(false);
+                Habit habit = checked.getHabit();
+                habit.setTotalChecked(Math.max(0, habit.getTotalChecked() - 1));
+                habit.setHabitStreak(Math.max(0, habit.getHabitStreak() - 1));
+
+                habitRepository.save(habit);
+                return repository.save(checked);
+            }
+            return record.get();
+        }
+        return null;
+    }
 }
