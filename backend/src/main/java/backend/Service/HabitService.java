@@ -36,7 +36,7 @@ public class HabitService {
     }
 
     // Update
-    public Habit uptadeName(String name, Long id) {
+    public Habit updateName(String name, Long id) {
         Optional<Habit> optHabit = repository.findById(id);
         if (optHabit.isPresent()) {
             Habit updated = optHabit.get();
