@@ -15,7 +15,7 @@ public class HabitRecordController {
         this.service = service;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{habitId}")
     public ResponseEntity<HabitRecord> createOrGet(@PathVariable Long habitId) {
         HabitRecord createOrGet = service.createOrGet(habitId);
         return ResponseEntity.ok(createOrGet);
@@ -27,7 +27,7 @@ public class HabitRecordController {
         return ResponseEntity.ok(recordChecked);
     }
 
-    @PatchMapping("/uncheck{id}")
+    @PatchMapping("/uncheck/{id}")
     public ResponseEntity<HabitRecord> uncheck(@PathVariable Long id) {
         HabitRecord recordUnchecked = service.uncheck(id);
         return ResponseEntity.ok(recordUnchecked);
