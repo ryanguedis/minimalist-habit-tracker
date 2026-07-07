@@ -21,13 +21,13 @@ public class HabitRecordController {
         return ResponseEntity.ok(createOrGet);
     }
 
-    @PatchMapping("/check/{id}")
+    @PatchMapping("/{id}/check")
     public ResponseEntity<HabitRecord> check(@PathVariable Long id) {
         HabitRecord recordChecked = service.check(id);
         return ResponseEntity.ok(recordChecked);
     }
 
-    @PatchMapping("/uncheck/{id}")
+    @PatchMapping("/{id}/uncheck")
     public ResponseEntity<HabitRecord> uncheck(@PathVariable Long id) {
         HabitRecord recordUnchecked = service.uncheck(id);
         return ResponseEntity.ok(recordUnchecked);
