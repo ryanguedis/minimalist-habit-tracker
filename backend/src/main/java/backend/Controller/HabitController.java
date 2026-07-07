@@ -19,13 +19,13 @@ public class HabitController {
     }
 
     @PostMapping
-    public ResponseEntity<Habit> create(Habit habit) {
+    public ResponseEntity<Habit> create(@RequestBody Habit habit) {
         Habit habitSaved = service.create(habit);
         return ResponseEntity.ok(habitSaved);
     }
 
     @GetMapping("/records")
-    public ResponseEntity<List<HabitRecord>> readRecord(Long id) {
+    public ResponseEntity<List<HabitRecord>> readRecord(@PathVariable Long id) {
         List<HabitRecord> readRecord = service.readRecords(id);
         return ResponseEntity.ok(readRecord);
     }
@@ -37,13 +37,13 @@ public class HabitController {
     }
 
     @PatchMapping
-    public ResponseEntity<Habit> updateName(String name, Long id) {
+    public ResponseEntity<Habit> updateName(@RequestBody String name, @PathVariable Long id) {
         Habit habitUpdated = service.uptadeName(name, id);
         return ResponseEntity.ok(habitUpdated);
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> delete(Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
