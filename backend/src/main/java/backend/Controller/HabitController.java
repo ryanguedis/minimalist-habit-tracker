@@ -23,7 +23,7 @@ public class HabitController {
         return ResponseEntity.ok(habitSaved);
     }
 
-    @GetMapping("/records/{id}")
+    @GetMapping("/{id}/records")
     public ResponseEntity<List<HabitRecord>> readRecord(@PathVariable Long id) {
         List<HabitRecord> readRecord = service.readRecords(id);
         return ResponseEntity.ok(readRecord);
@@ -37,7 +37,7 @@ public class HabitController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<Habit> updateName(@RequestBody String name, @PathVariable Long id) {
-        Habit habitUpdated = service.uptadeName(name, id);
+        Habit habitUpdated = service.updateName(name, id);
         return ResponseEntity.ok(habitUpdated);
     }
 
