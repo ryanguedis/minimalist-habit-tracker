@@ -15,7 +15,7 @@ public class HabitRecordController {
         this.service = service;
     }
 
-    @GetMapping("/{habitId}")
+    @PostMapping("/{habitId}")
     public ResponseEntity<HabitRecord> createOrGet(@PathVariable Long habitId) {
         HabitRecord createOrGet = service.createOrGet(habitId);
         return ResponseEntity.ok(createOrGet);
