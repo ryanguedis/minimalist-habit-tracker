@@ -15,19 +15,19 @@ public class HabitRecordController {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<HabitRecord> createOrGet(@PathVariable Long habitId) {
         HabitRecord createOrGet = service.createOrGet(habitId);
         return ResponseEntity.ok(createOrGet);
     }
 
-    @PatchMapping("/check")
+    @PatchMapping("/check/{id}")
     public ResponseEntity<HabitRecord> check(@PathVariable Long id) {
         HabitRecord recordChecked = service.check(id);
         return ResponseEntity.ok(recordChecked);
     }
 
-    @PatchMapping("/uncheck")
+    @PatchMapping("/uncheck{id}")
     public ResponseEntity<HabitRecord> uncheck(@PathVariable Long id) {
         HabitRecord recordUnchecked = service.uncheck(id);
         return ResponseEntity.ok(recordUnchecked);

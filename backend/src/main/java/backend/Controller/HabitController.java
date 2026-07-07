@@ -5,7 +5,6 @@ import backend.Model.HabitRecord;
 import backend.Service.HabitService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -24,7 +23,7 @@ public class HabitController {
         return ResponseEntity.ok(habitSaved);
     }
 
-    @GetMapping("/records")
+    @GetMapping("/records/{id}")
     public ResponseEntity<List<HabitRecord>> readRecord(@PathVariable Long id) {
         List<HabitRecord> readRecord = service.readRecords(id);
         return ResponseEntity.ok(readRecord);
@@ -36,13 +35,13 @@ public class HabitController {
         return ResponseEntity.ok(habits);
     }
 
-    @PatchMapping
+    @PatchMapping("/{id}")
     public ResponseEntity<Habit> updateName(@RequestBody String name, @PathVariable Long id) {
         Habit habitUpdated = service.uptadeName(name, id);
         return ResponseEntity.ok(habitUpdated);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
