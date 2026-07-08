@@ -1,5 +1,6 @@
 package backend.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +24,7 @@ public class HabitRecord {
 
     @ManyToOne
     @JoinColumn(name = "habit_id")
+    @JsonIgnore
     private Habit habit;
 
 }
