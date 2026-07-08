@@ -2,8 +2,8 @@ CREATE TABLE tb_habit (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     date DATE NOT NULL,
-    habitStreak INT NOT NULL,
-    totalChecked BIGINT NOT NULL
+    habit_streak INT NOT NULL,
+    total_checked BIGINT NOT NULL
 );
 
 CREATE TABLE tb_record (
