@@ -25,7 +25,7 @@ public class Habit {
     @OneToMany(mappedBy = "habit")
     private List<HabitRecord> habitRecord;
 
-    private int habitStreak = 0;
+    private Integer habitStreak = 0;
 
     private Long totalChecked = 0L;
 
