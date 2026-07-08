@@ -4,6 +4,8 @@ import backend.Model.Habit;
 import backend.Model.HabitRecord;
 import backend.Repository.HabitRepository;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +20,10 @@ public class HabitService {
 
     // Create
     public Habit create(Habit habit) {
+        habit.setHabitStreak(0);
+        habit.setTotalChecked(0L);
+        habit.setDate(LocalDate.now());
+
         return repository.save(habit);
     }
 
