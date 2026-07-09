@@ -1,0 +1,37 @@
+/* ============================================================
+   AddHabitTitle — Título da seção de adição de hábito
+   Posicionado acima do input, centralizado horizontalmente.
+   ============================================================ */
+
+.add-habit-title-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* Espaçamento inferior que separa o título do input */
+  margin-bottom: 18px;
+}
+
+.add-habit-title {
+  /* Tipografia estilo Apple — SF Pro Display / system font */
+  font-family: -apple-system, BlinkMacSystemFont, "Departure Mono",
+    "Departure Mono", Helvetica, Arial, sans-serif;
+
+  font-size: clamp(3rem, 3vw, 3rem);
+  /* Responsivo e elegante */
+  font-weight: 300;
+  /* Regular — peso leve para o texto base */
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* "hábito" — bold italic via <strong><em> */
+.add-habit-title strong {
+  font-weight: 700;
+}
+
+.add-habit-title em {
+  font-style: italic;
+}

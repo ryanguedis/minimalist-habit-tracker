@@ -1,0 +1,31 @@
+.add-habit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.add-habit-input {
+  width: 70%;
+  max-width: 700px;
+  height: 85px;
+  background-color: #000000; /* Fundo cinza escuro, típico do ecossistema Apple */
+  border: 2px solid #c1c1c1; /* Stroke 6 exigido */
+  border-radius: 1px; /* Pill shape */
+  padding: 0 24px;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Departure Mono", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+  outline: none;
+  pointer-events: auto; /* Reativa cliques apenas para o input */
+  transition: all 0.3s ease;
+}
+
+.add-habit-input::placeholder {
+  color: #383838; /* Cor placeholder estilo Apple */
+}
+
+.add-habit-input:focus {
+  background-color: #2f2424;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.844);
+}

@@ -1,0 +1,32 @@
+.cad-action-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px; /* Pequeno espaçamento em relação ao input */
+}
+
+.cad-action-btn {
+  width: 100%;
+  max-width: 400px;
+  height: 85px;
+  background-color: #000000;
+  border: 2px solid #c1c1c1;
+  border-radius: 1px;
+  cursor: pointer;
+  outline: none;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cad-action-btn:hover {
+  background-color: #69e900c3;
+  box-shadow: 0 0 15px rgb(0, 255, 38);
+}
+
+.cad-action-btn:active {
+  transform: scale(0.98);
+}
