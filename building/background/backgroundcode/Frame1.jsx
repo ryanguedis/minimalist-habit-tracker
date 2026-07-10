@@ -10,14 +10,14 @@ import CadActionBox from '../frame1/cad_actionbox/box/CadActionBox';
  * Fundo preto com borda branca arredondada (stroke 6px).
  * Recebe children para abrigar os elementos internos futuramente.
  */
-function Frame1({ children }) {
+function Frame1({ children, onAction, habitName, setHabitName }) {
   return (
     <div className="frame1">
       {/* Grupo: Título + Input — centralizados como uma unidade */}
       <div className="add-habit-group">
         <AddHabitTitle />
-        <AddHabitBox />
-        <CadActionBox />
+        <AddHabitBox habitName={habitName} setHabitName={setHabitName} />
+        <CadActionBox onAction={onAction} />
       </div>
       {children}
     </div>

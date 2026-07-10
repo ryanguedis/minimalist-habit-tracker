@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 20px; /* Pequeno espaçamento em relação ao input */
+  margin-top: 30px; /* Pequeno espaçamento em relação ao input */
 }
 
 .cad-action-btn {
@@ -11,6 +11,7 @@
   max-width: 400px;
   height: 85px;
   background-color: #000000;
+  box-shadow: 0 0 15px #fcb500;
   border: 2px solid #c1c1c1;
   border-radius: 1px;
   cursor: pointer;
@@ -23,8 +24,8 @@
 }
 
 .cad-action-btn:hover {
-  background-color: #69e900c3;
-  box-shadow: 0 0 15px rgb(0, 255, 38);
+  background-color: #543a01;
+  box-shadow: 0 0 15px rgb(255, 208, 0);
 }
 
 .cad-action-btn:active {

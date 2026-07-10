@@ -1,0 +1,13 @@
+.habits-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1400px;
+  padding: 80px 40px 40px 40px; /* padding top para nao sobrepor o botao de voltar */
+  max-height: 100vh;
+  overflow-y: auto;
+}
