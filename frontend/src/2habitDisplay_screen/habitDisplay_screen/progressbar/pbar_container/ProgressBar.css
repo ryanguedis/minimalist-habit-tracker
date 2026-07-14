@@ -1,28 +1,46 @@
 .progress-bar-wrapper {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   width: 100%;
-  margin-top: 12px; /* Espaço entre o título e a barra */
-  gap: 15px; /* Espaço entre a barra e a porcentagem */
+  margin-top: 15px;
+  gap: 15px;
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.progress-main-value {
+  color: #989898;
+  font-family: "Departure Mono", monospace;
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
 .progress-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Espaço entre os blocos segmentados */
   width: 100%;
-  max-width: 200px; /* Para não encostar na borda direita do card */
-  height: 30px;
-  background-color: #404040; /* Fundo cinza escuro, como na imagem */
-  border-radius: 2px; /* Cantos arredondados (pill shape) */
+  height: 14px;
 }
 
-.progress-bar-fill {
-  height: 100%;
-  background-color: #ffffff; /* Verde claro neon parecido com o da imagem SVG */
-  border-radius: 2px;
-  transition: width 0.5s ease-in-out;
+.progress-block {
+  flex: 1; /* Faz todos os blocos terem a mesma largura */
+  border-radius: 3px;
 }
 
-.progress-bar-text {
-  color: #ffffff;
-  font-family: "Departure Mono", monospace;
-  font-size: 1.5rem;
+.progress-block.filled {
+  height: 16px; /* Altura do bloco simulando um quadrado/retângulo */
+  background-color: #f18800;
+  box-shadow: 0 0 8px rgba(255, 157, 0, 0.6); /* Brilho individual e sutil do bloco */
+}
+
+.progress-block.empty {
+  height: 3px; /* Transforma o bloco vazio em um pequeno traço (dash) */
+  background-color: #404040;
 }

@@ -9,7 +9,7 @@ function Frame2({ savedHabits, onBack }) {
       <BackToFrame1 onBack={onBack} />
       <div className="habits-grid">
         {savedHabits.map((habit, index) => (
-          <HabitDisplayBox key={index} habitName={habit} />
+          <HabitDisplayBox key={index} index={index} habitName={habit} />
         ))}
       </div>
     </div>

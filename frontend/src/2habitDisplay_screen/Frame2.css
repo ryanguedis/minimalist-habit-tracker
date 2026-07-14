@@ -1,13 +1,21 @@
 .habits-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  gap: 40px;
-  width: 100%;
-  max-width: 1400px;
-  padding: 80px 40px 40px 40px; /* padding top para nao sobrepor o botao de voltar */
-  max-height: 100vh;
-  overflow-y: auto;
+  display: flex; /* Define o container como flexbox para organizar os itens de forma flexível */
+  flex-wrap: wrap; /* Permite que os itens "quebrem" para a linha de baixo quando não houver mais espaço horizontal */
+  justify-content: center; /* Centraliza os itens horizontalmente (no eixo principal) */
+  align-items: center; /* Centraliza os itens verticalmente (no eixo transversal) em relação à sua linha atual */
+  align-content: center; /* Centraliza todo o conjunto de linhas verticalmente caso haja espaço sobrando no container */
+  gap: 40px; /* Adiciona um espaçamento (margem interna) de 40 pixels entre cada item do grid */
+  width: 100%; /* Faz com que o container ocupe 100% da largura do seu elemento pai */
+  max-width: 1400px; /* Limita o crescimento do container até 1400 pixels, evitando que estique demais em telas muito grandes */
+  padding: 80px 40px 40px 40px; /* Espaçamento interno: 80px no topo (para não sobrepor o botão de voltar), 40px direita, 40px baixo, 40px esquerda */
+  max-height: 100vh; /* Limita a altura máxima a 100% da altura da tela visível (Viewport Height) */
+  overflow-y: auto; /* Adiciona rolagem vertical automaticamente apenas se os itens ultrapassarem a altura máxima da tela */
+
+  /* Esconder a barra de rolagem (scrollbar) mantendo a funcionalidade de scroll */
+  -ms-overflow-style: none; /* Esconde a barra de rolagem no Internet Explorer e Microsoft Edge antigos */
+  scrollbar-width: none; /* Esconde a barra de rolagem no Mozilla Firefox */
+}
+
+.habits-grid::-webkit-scrollbar {
+  display: none; /* Esconde a barra de rolagem em navegadores WebKit (Google Chrome, Safari, Opera, Edge moderno) */
 }

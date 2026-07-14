@@ -5,12 +5,15 @@ function BarsTitles() {
   return (
     <div className="bars-titles-container">
       <div className="bars-row">
-        <span className="bars-title">Dias Seguidos</span>
-        <ProgressBar percentage={45} />
+        <span className="bars-title"> {'>'} Dias Seguidos </span>
+        <ProgressBar mainValue={365} currentBlock={9} totalBlocks={20} />
       </div>
+
+      <div className="bars-separator"></div>
+
       <div className="bars-row">
-        <span className="bars-title">Dias Totais</span>
-        <ProgressBar percentage={75} />
+        <span className="bars-title"> {'>'} Dias Totais</span>
+        <ProgressBar mainValue={365} currentBlock={15} totalBlocks={20} />
       </div>
     </div>
   );

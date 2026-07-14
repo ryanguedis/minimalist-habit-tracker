@@ -1,16 +1,19 @@
 import './ProgressBar.css';
 
-function ProgressBar({ percentage }) {
-  // Pre-disposição para o backend: a variável 'percentage' será alimentada pelo backend (ex: com base nas infos da bd e markbox).
+function ProgressBar({ mainValue, currentBlock, totalBlocks = 20 }) {
   return (
     <div className="progress-bar-wrapper">
-      <div className="progress-bar-container">
-        <div 
-          className="progress-bar-fill"
-          style={{ width: `${percentage}%` }}
-        ></div>
+      <div className="progress-stats">
+        <span className="progress-main-value">{mainValue}</span>
       </div>
-      <span className="progress-bar-text">{percentage}%</span>
+      <div className="progress-bar-container">
+        {Array.from({ length: totalBlocks }).map((_, index) => (
+          <div
+            key={index}
+            className={`progress-block ${index < currentBlock ? 'filled' : 'empty'}`}
+          ></div>
+        ))}
+      </div>
     </div>
   );
 }

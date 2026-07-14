@@ -6,9 +6,10 @@
 }
 
 .habit-display-box {
-  width: 350px;
-  height: 290px;
-  border: 1.5px solid #ffffff;
+  width: 420px;
+  min-height: 340px;
+  height: auto;
+  border: 1.5px solid #4d4d4dd7;
   border-radius: 7px;
   background-color: rgba(9, 9, 9, 0.8);
   padding: 24px;
@@ -16,9 +17,66 @@
   flex-direction: column;
 }
 
+.habit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.habit-index {
+  flex: 1;
+  text-align: left;
+  color: #737373;
+  font-family: "Departure Mono", monospace;
+  font-size: 1rem;
+}
+
 .habit-display-name {
-  color: #ffffff;
+  color: #989898;
   font-family: "Departure Mono", monospace, -apple-system, sans-serif;
   font-size: 1.7rem;
-  text-align: left;
+  text-align: center;
+}
+
+.habit-bracket {
+  color: #f18800; /* Laranja da progress bar */
+}
+
+.habit-status-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.habit-status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #4ade80; /* Verde claro */
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.7);
+}
+
+.habit-footer {
+  margin-top: 15px; /* Margem fixa para ficar logo abaixo das barras */
+  width: 100%;
+}
+
+.bars-separator {
+  width: 100%;
+  height: 1px;
+  border-bottom: 2px dashed #303030;
+  margin: 15px 0 10px 0;
+}
+
+.expand-habit {
+  color: #989898;
+  font-family: "Departure Mono", monospace, -apple-system, sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.expand-habit:hover {
+  color: #d4d4d4;
 }
